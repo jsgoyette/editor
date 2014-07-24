@@ -79,6 +79,7 @@ $(function () {
 
   $('#filename').focus(function() {
     $('#file-viewer').removeClass('hidden');
+    getlist($(this).val());
   });
 
   // $('#filename').blur(function() {
