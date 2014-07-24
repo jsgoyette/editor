@@ -8,7 +8,7 @@ var spinnerOpts = {
   corners: 1, // Corner roundness (0..1)
   rotate: 0, // The rotation offset
   direction: -1, // 1: clockwise, -1: counterclockwise
-  color: '#aaa', // #rgb or #rrggbb or array of colors
+  color: '#333', // #rgb or #rrggbb or array of colors
   speed: 1, // Rounds per second
   trail: 60, // Afterglow percentage
   shadow: true, // Whether to render a shadow
