@@ -1,0 +1,58 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #182426;
+  /*overflow: hidden;*/
+}
+
+#header {
+  border-bottom: 5px solid #10181d;
+}
+
+#filename {
+  border: none;
+  width: 90%;
+  text-indent: 10px;
+  background-color: #182426;
+}
+
+#filename, button {
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  font-size: 14px;
+  line-height: 32px;
+  color: #fff;
+}
+
+#header button {
+  display: block;
+  background-color: #10181d;
+  border: none;
+  border-left: 1px solid #383838;
+  padding-left: 8px;
+  padding-right: 8px;
+  float: right;
+  cursor: pointer;
+}
+
+#header button:last-child {
+  border-left: 1px solid #000;
+}
+
+#file-viewer {
+  position: absolute;
+  top: 32px;
+  left: 0px;
+  right: 0px;
+  padding: 15px;
+  background-color: rgba(48, 50, 52, 0.9);
+  color: #dedede;
+  z-index: 1111;
+  max-height: 90%;
+  overflow: scroll;
+}
+
+.hidden {
+  display: none;
+}
