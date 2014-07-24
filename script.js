@@ -101,6 +101,7 @@ $(function () {
     if (e.which == 13) {
       $('#file-viewer').addClass('hidden');
       get($(this).val());
+      editor.focus();
     } else {
       $('#file-viewer').removeClass('hidden');
       getlist($(this).val());
