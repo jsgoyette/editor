@@ -139,7 +139,7 @@ $(function () {
     editor.getSession().setMode("ace/mode/" + mode);
     editor.setHighlightActiveLine(true);
     editor.session.setUseWrapMode(true);
-    editor.setTheme("ace/theme/tomorrow_night");
+    editor.setTheme("ace/theme/crimson_editor");
     // tomorrow_night solarized_dark
 
     // copy back to textarea on form submit...

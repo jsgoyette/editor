@@ -1,12 +1,12 @@
 body {
   margin: 0px;
   padding: 0px;
-  background-color: #182426;
   /*overflow: hidden;*/
 }
 
 #header {
-  border-bottom: 5px solid #10181d;
+  background-color: #182426;
+  border-bottom: 5px solid #efefef;
 }
 
 #filename {
