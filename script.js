@@ -19,19 +19,22 @@ var spinnerOpts = {
   left: '50%' // Left position relative to parent
 };
 
+var lm = listModal('#filename', '#file-viewer');
+
 $(function () {
 
   var active = false;
 
   var getlist = function(f) {
     if (!active) {
-      console.log('getting list');
+      // console.log('getting list');
       active = true;
       $.post('/controller.php', {
         file_list: f
       }).done(function(data) {
         // console.log(data);
-        $('#file-viewer').html('<pre>'+data+'</pre>');
+        // $('#file-viewer').html('<pre>'+data+'</pre>');
+        lm.populate(JSON.parse(data));
         active = false;
       });
     }
@@ -55,7 +58,7 @@ $(function () {
       file_name: $('#filename').val() ,
       file_put: editor.getSession().getValue()
     }).done(function(data) {
-      console.log(data);
+      // console.log(data);
       spinner.stop();
     });
   };
@@ -68,7 +71,7 @@ $(function () {
     // $.post('/?entryPoint=editor_controller', {
       file_unlink: f,
     }).done(function(data) {
-      console.log(data);
+      // console.log(data);
       get(f);
       spinner.stop();
     });
@@ -76,20 +79,6 @@ $(function () {
 
   $('#filename').val(startpath);
   get(startpath);
-
-  $('#filename').focus(function() {
-    $('#file-viewer').removeClass('hidden');
-    getlist($(this).val());
-  });
-
-  // $('#filename').blur(function() {
-  //   $('#file-viewer').addClass('hidden');
-  // });
-
-  // $('#filename').change(function() {
-  //   $('#file-viewer').removeClass('hidden');
-  //   editor.focus();
-  // });
 
   $('body').keyup(function(e) {
     if (e.which == 27) {
@@ -99,12 +88,22 @@ $(function () {
   });
 
   $('#filename').keyup(function(e) {
+    $('#file-viewer').removeClass('hidden');
+    var $selected = $('#file-viewer li').filter('.selected');
     if (e.which == 13) {
-      $('#file-viewer').addClass('hidden');
-      get($(this).val());
-      editor.focus();
-    } else {
-      $('#file-viewer').removeClass('hidden');
+      if ($selected.data('path')) {
+        $selected.removeClass('selected');
+        $(this).val($selected.data('path'));
+        $(this).focus();
+        getlist($(this).val());
+      }
+      else {
+        $('#file-viewer').addClass('hidden');
+        // console.log($(this).val());
+        get($(this).val());
+        editor.focus();
+      }
+    } else if (e.which != 40 && e.which != 38) {
       getlist($(this).val());
     }
   });

@@ -1,3 +1,5 @@
+* {margin:0;padding:0;}
+
 body {
   margin: 0px;
   padding: 0px;
@@ -49,14 +51,28 @@ body {
   top: 32px;
   left: 0px;
   right: 0px;
-  padding: 15px;
+  padding: 0px;
   background-color: rgba(48, 50, 52, 0.9);
   color: #dedede;
   z-index: 1111;
-  max-height: 90%;
+  max-height: 95%;
   overflow: scroll;
 }
 
 .hidden {
   display: none;
+}
+
+#file-viewer ul {
+  overflow: scroll;
+  list-style-type: none;
+}
+
+#file-viewer li {
+  display: block;
+  padding: 6px 20px;
+}
+
+#file-viewer .selected {
+  background-color: #525a62;
 }

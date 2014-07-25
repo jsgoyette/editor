@@ -14,12 +14,14 @@
 </div>
 
 <textarea name="code-editor" data-editor="php" class="editor"></textarea>
-<div id="file-viewer" class="hidden"></div>
+<div id="file-viewer" class="hidden">
+</div>
 <div id="spinner"></div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js"></script>
 <script src="spin.min.js"></script>
+<script src="listmodal.js"></script>
 <script src="script.js"></script>
 
 <script type="text/javascript">

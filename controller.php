@@ -40,10 +40,17 @@ if (!empty($r['file_get'])) {
         $dir = $path['dirname'];
     }
 
-    $log->i('editor', 'List: ' . $dir);
+    // $log->i('editor', 'List: ' . $dir);
 
-    if (call('is_dir', $dir)) {
-        echo call('shell_exec', 'ls -alh ' . $dir);
-    }
+    // if (call('is_dir', $dir)) {
+    //     echo call('shell_exec', 'ls -alh ' . $dir);
+    // }
+
+    echo json_encode(array(
+        'dir' => $dir,
+        'files' => call('scandir', $dir)
+    ));
 }
+
+die();
 
