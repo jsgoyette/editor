@@ -127,7 +127,7 @@ $(function () {
     var editDiv = $('<div>', {
       position: 'absolute',
       width: '100%',
-      height: '95%',
+      height: '92%',
       'class': textarea.attr('class')
     }).insertBefore(textarea);
 
