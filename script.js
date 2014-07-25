@@ -30,7 +30,7 @@ $(function () {
       // console.log('getting list');
       active = true;
       $.post('/controller.php', {
-        file_list: f
+        list: f
       }).done(function(data) {
         // console.log(data);
         // $('#file-viewer').html('<pre>'+data+'</pre>');
@@ -42,7 +42,7 @@ $(function () {
 
   var get = function(f) {
     $.post('/controller.php', {
-      file_get: f
+      get: f
     }).done(function(data) {
       // console.log(data);
       localStorage.setItem('path', f);
@@ -55,8 +55,8 @@ $(function () {
     var spinner = new Spinner(spinnerOpts).spin(target);
     $.post('/controller.php', {
     // $.post('/?entryPoint=editor_controller', {
-      file_name: $('#filename').val() ,
-      file_put: editor.getSession().getValue()
+      name: $('#filename').val() ,
+      put: editor.getSession().getValue()
     }).done(function(data) {
       // console.log(data);
       spinner.stop();
@@ -69,7 +69,7 @@ $(function () {
     var f = $('#filename').val();
     $.post('/controller.php', {
     // $.post('/?entryPoint=editor_controller', {
-      file_unlink: f,
+      unlink: f,
     }).done(function(data) {
       // console.log(data);
       get(f);

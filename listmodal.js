@@ -58,7 +58,7 @@
           $current = $listItems.eq(0);
         }
         else {
-          $current = $selected.next();
+          $current = $selected.nextAll("li").not(".hidden").first();
         }
       }
       // Up key
@@ -68,7 +68,7 @@
           $current = $listItems.last();
         }
         else {
-          $current = $selected.prev();
+          $current = $selected.prevAll("li").not(".hidden").first();
         }
       }
 

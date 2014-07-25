@@ -14,29 +14,29 @@ function call() {
 
 $r = $_REQUEST;
 
-if (!empty($r['file_get'])) {
+if (!empty($r['get'])) {
 
-    $log->i('editor', 'Get: ' . $r['file_get']);
-    if (call('file_exists', $r['file_get'])) {
-        echo call('file_get_contents', $r['file_get']);
+    $log->i('editor', 'Get: ' . $r['get']);
+    if (call('file_exists', $r['get'])) {
+        echo call('file_get_contents', $r['get']);
     }
 
-} else if (!empty($r['file_put']) && $r['file_name']) {
+} else if (!empty($r['put']) && $r['name']) {
 
-    $log->i('editor', 'Save: ' . $r['file_name']);
-    echo call('file_put_contents', $r['file_name'], $r['file_put']);
+    $log->i('editor', 'Save: ' . $r['name']);
+    echo call('file_put_contents', $r['name'], $r['put']);
 
-} else if (!empty($r['file_unlink'])) {
+} else if (!empty($r['unlink'])) {
 
-    $log->i('editor', 'Delete: ' . $r['file_unlink']);
-    echo call('unlink', $r['file_unlink']);
+    $log->i('editor', 'Delete: ' . $r['unlink']);
+    echo call('unlink', $r['unlink']);
 
-} else if (!empty($r['file_list'])) {
+} else if (!empty($r['list'])) {
 
-    if (call('is_dir', $r['file_list'])) {
-        $dir = $r['file_list'];
+    if (call('is_dir', $r['list'])) {
+        $dir = $r['list'];
     } else {
-        $path = call('pathinfo', $r['file_list']);
+        $path = call('pathinfo', $r['list']);
         $dir = $path['dirname'];
     }
 
