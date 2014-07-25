@@ -33,16 +33,16 @@ if (!empty($r['file_get'])) {
 
 } else if (!empty($r['file_list'])) {
 
-    if (is_dir($r['file_list'])) {
+    if (call('is_dir', $r['file_list'])) {
         $dir = $r['file_list'];
     } else {
-        $path = pathinfo($r['file_list']);
+        $path = call('pathinfo', $r['file_list']);
         $dir = $path['dirname'];
     }
 
     $log->i('editor', 'List: ' . $dir);
 
-    if (is_dir($dir)) {
+    if (call('is_dir', $dir)) {
         echo call('shell_exec', 'ls -alh ' . $dir);
     }
 }
